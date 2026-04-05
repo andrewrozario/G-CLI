@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G CLI | The Multi-Brain AI OS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #05010A;
+            --accent: #b26cff;
+            --text: #eaeaea;
+            --text-sec: #8a8a9e;
+            --grad: linear-gradient(135deg, #1a0125 0%, #6a00ff 50%, #3a0ca3 100%);
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(178, 108, 255, 0.15);
+            --glow: 0 0 20px rgba(178, 108, 255, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        #particles-js {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Nav */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 1.5rem 0;
+            background: rgba(5, 1, 10, 0.8);
+            backdrop-filter: blur(20px);
+            z-index: 100;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .logo-text {
+            font-weight: 800;
+            letter-spacing: 2px;
+            background: var(--grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-sec);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 10rem 0;
+        }
+
+        /* 1. HERO */
+        .hero {
+            text-align: center;
+            padding-top: 15rem;
+            min-height: 100vh;
+        }
+
+        .hero-logo {
+            width: 140px;
+            height: 140px;
+            margin-bottom: 3rem;
+            animation: logoBreathe 5s ease-in-out infinite;
+        }
+
+        @keyframes logoBreathe {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 20px rgba(178, 108, 255, 0.2)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 40px rgba(178, 108, 255, 0.5)); }
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to bottom, #fff 40%, #b26cff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p.headline {
+            font-size: 1.8rem;
+            color: var(--text);
+            margin-bottom: 1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p.subtext {
+            font-size: 1.1rem;
+            color: var(--text-sec);
+            margin-bottom: 3rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 1.2rem 2.5rem;
+            border-radius: 100px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 10px 30px rgba(178, 108, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(178, 108, 255, 0.5);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--glass-border);
+            color: var(--text);
+            backdrop-filter: blur(10px);
+        }
+
+        /* 2. DOWNLOAD SECTION */
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .dl-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 3rem;
+            border-radius: 32px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .dl-card:hover {
+            border-color: var(--accent);
+            background: rgba(178, 108, 255, 0.05);
+        }
+
+        .dl-icon { font-size: 3rem; margin-bottom: 1.5rem; display: block; }
+
+        /* 4. EXPERIENCE (TERMINAL) */
+        .terminal-box {
+            background: #000;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            overflow: hidden;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.8);
+            margin-top: 4rem;
+        }
+
+        .t-header {
+            background: #111;
+            padding: 1rem;
+            display: flex;
+            gap: 8px;
+            border-bottom: 1px solid #222;
+        }
+
+        .t-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .t-body { padding: 2rem; min-height: 350px; font-family: 'JetBrains Mono', monospace; }
+        .t-line { margin-bottom: 1rem; opacity: 0; }
+        .t-prompt { color: var(--accent); }
+
+        footer {
+            padding: 5rem 0;
+            border-top: 1px solid #111;
+            text-align: center;
+            color: var(--text-sec);
+        }
+
+        @keyframes typeIn { to { opacity: 1; transform: translateY(0); } }
+        .type-line { animation: typeIn 0.5s forwards; }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-content">
+            <div class="logo-group">
+                <img src="Gaia_Icon.png" class="logo-img" alt="G">
+                <div class="logo-text">G CLI</div>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#install">Downloads</a>
+                <a href="#">Payout Settings</a>
+                <a href="https://github.com/andrewrozario/G-CLI" class="btn btn-secondary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="particles-js"></div>
+
+    <div class="container">
+        <!-- 1. HERO -->
+        <section class="hero reveal">
+            <img src="Gaia_Icon.png" alt="Gaia Logo" class="hero-logo">
+            <h1>G CLI</h1>
+            <p class="headline">A multi-brain intelligence system<br>that thinks, decides, and executes.</p>
+            <p class="subtext">The first Cognitive Operating Layer for your local environment.</p>
+            <div class="btn-group">
+                <a href="#install" class="btn btn-primary">Download v3.0</a>
+                <a href="https://github.com/andrewrozario/G-CLI" class="btn btn-secondary">View Source</a>
+            </div>
+        </section>
+
+        <!-- 4. EXPERIENCE (LIVE DEMO) -->
+        <section class="reveal">
+            <h2 style="text-align: center; margin-bottom: 1rem; font-size: 2.5rem;">Visible Cognition</h2>
+            <div class="terminal-box">
+                <div class="t-header">
+                    <div class="t-dot" style="background:#ff5f56"></div>
+                    <div class="t-dot" style="background:#ffbd2e"></div>
+                    <div class="t-dot" style="background:#27c93f"></div>
+                </div>
+                <div class="t-body" id="terminal-content">
+                    <!-- Typing animation here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. DOWNLOADS -->
+        <section id="install" class="reveal">
+            <h2 style="text-align: center; margin-bottom: 1rem;">Deploy the Brain</h2>
+            <p style="text-align: center; color: var(--text-sec);">Professional-grade installers with GUI configuration.</p>
+            
+            <div class="download-grid">
+                <!-- MacOS -->
+                <div class="dl-card">
+                    <span class="dl-icon"></span>
+                    <h3>macOS</h3>
+                    <p class="subtext" style="margin-bottom: 1rem;">Universal .pkg with Setup Wizard</p>
+                    <a href="https://github.com/andrewrozario/G-CLI/raw/main/Landing_Page/MacOS/G_CLI_Setup.pkg" class="btn btn-primary" style="display: block;">Download .pkg</a>
+                    <p style="font-size: 0.7rem; color: var(--text-sec); margin-top: 1rem; line-height: 1.2;">
+                        Note: Right-click > Open to bypass macOS Gatekeeper verification for this pre-release build.
+                    </p>
+                </div>
+
+                <!-- Windows -->
+                <div class="dl-card">
+                    <span class="dl-icon"></span>
+                    <h3>Windows</h3>
+                    <p class="subtext" style="margin-bottom: 2rem;">Professional .exe Installer</p>
+                    <a href="https://github.com/andrewrozario/G-CLI/raw/main/Landing_Page/Windows/G_CLI_Setup.iss" class="btn btn-primary" style="display: block;">Download .exe</a>
+                </div>
+
+                <!-- Linux -->
+                <div class="dl-card">
+                    <span class="dl-icon"></span>
+                    <h3>Linux</h3>
+                    <p class="subtext" style="margin-bottom: 2rem;">Source Installation</p>
+                    <code style="background:#000; padding: 10px; display:block; border-radius: 8px; margin-bottom: 10px;">sh install.sh</code>
+                    <a href="https://github.com/andrewrozario/G-CLI" class="btn btn-secondary" style="display: block;">View Source</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PHILOSOPHY -->
+        <section class="reveal" style="text-align: center;">
+            <div style="font-size: 3rem; font-weight: 200; line-height: 1.2;">
+                Most systems <span style="color:var(--accent); font-weight: 600;">respond.</span><br>
+                G CLI <span style="color:var(--accent); font-weight: 600;">decides.</span>
+            </div>
+        </section>
+
+        <footer>
+            <p>G CLI | Built for builders who think in systems.</p>
+            <p style="font-size: 0.8rem; margin-top: 1rem; opacity: 0.5;">Intelligence is not speed. It’s knowing where to look… and why.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Particles
+        particlesJS('particles-js', {
+            "particles": {
+                "number": { "value": 80 },
+                "color": { "value": "#b26cff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5 },
+                "size": { "value": 2 },
+                "line_linked": { "enable": true, "distance": 150, "color": "#b26cff", "opacity": 0.2, "width": 1 }
+            }
+        });
+
+        // Scroll Reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Terminal Demo
+        const terminalContent = document.getElementById('terminal-content');
+        const lines = [
+            { text: "G • : optimize backend structure", type: 'prompt' },
+            { text: "🧠 Thinking... (Claude)", type: 'dim' },
+            { text: "🔀 Choosing best strategy...", type: 'dim' },
+            { text: "⚙️ Executing system surgery... (Codex)", type: 'dim' },
+            { text: "🧪 Verifying stability... (Gemini)", type: 'dim' },
+            { text: "⚡ Result: Optimized performance by 40%", type: 'success' }
+        ];
+
+        let lineIdx = 0;
+        function typeTerminal() {
+            if (lineIdx < lines.length) {
+                const line = lines[lineIdx];
+                const div = document.createElement('div');
+                div.className = 't-line type-line';
+                if (line.type === 'prompt') div.innerHTML = `<span class="t-prompt">G •</span> ${line.text.split(': ')[1]}`;
+                else if (line.type === 'success') div.style.color = '#27c93f', div.textContent = line.text;
+                else div.style.color = '#666', div.textContent = line.text;
+                
+                terminalContent.appendChild(div);
+                lineIdx++;
+                setTimeout(typeTerminal, 1000);
+            } else {
+                setTimeout(() => {
+                    terminalContent.innerHTML = '';
+                    lineIdx = 0;
+                    typeTerminal();
+                }, 5000);
+            }
+        }
+        typeTerminal();
+    </script>
+</body>
+</html>

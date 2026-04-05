@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# G CLI Post-Install Configuration Wizard
+# This script runs after the files are copied.
+
+echo "Running post-install configuration..."
+
+# 1. Install dependencies globally
+/usr/bin/python3 -m pip install typer rich requests openai google-generativeai python-dotenv watchdog psutil pydantic anthropic langchain-core --break-system-packages --user
+
+# 2. Native macOS UI for API Keys
+function get_key() {
+    osascript <<EOT
+        tell application "System Events"
+            activate
+            set theKey to text returned of (display dialog "Enter your $1 API Key (Leave blank to skip):" default answer "" with title "G CLI Setup")
+        end tell
+EOT
+}
+
+CLAUDE_KEY=$(get_key "Anthropic/Claude")
+GEMINI_KEY=$(get_key "Google/Gemini")
+OPENAI_KEY=$(get_key "OpenAI/Codex")
+
+# 3. Write to the global config location
+# For global pkg installs, we use ~/.gcli/.env
+CONFIG_DIR="$HOME/.gcli"
+mkdir -p "$CONFIG_DIR"
+
+cat > "$CONFIG_DIR/.env" <<EOF
+ANTHROPIC_API_KEY=$CLAUDE_KEY
+GEMINI_API_KEY=$GEMINI_KEY
+OPENAI_API_KEY=$OPENAI_KEY
+EOF
+
+chown $USER "$CONFIG_DIR/.env"
+chmod 600 "$CONFIG_DIR/.env"
+
+echo "Configuration complete."
+exit 0

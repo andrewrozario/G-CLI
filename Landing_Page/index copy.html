@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G CLI | The Multi-Brain AI OS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --bg-accent: #12001f;
+            --accent: #7c3aed;
+            --accent-glow: #a855f7;
+            --text-main: #e5e7eb;
+            --text-dim: #9ca3af;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(circle at center, var(--bg-accent) 0%, var(--bg) 100%);
+            color: var(--text-main);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Background Effects */
+        .glow-sphere {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(80px);
+        }
+
+        .glow-1 { top: -10%; right: -10%; }
+        .glow-2 { bottom: -10%; left: -10%; }
+
+        /* Typography */
+        h1, h2, h3 { letter-spacing: -0.02em; }
+
+        /* Layout */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 8rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding-top: 8rem;
+        }
+
+        .hero-logo {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.4));
+            animation: breathe 4s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.4)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 40px rgba(168, 85, 247, 0.6)); }
+        }
+
+        .hero h1 {
+            font-size: 6rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(to bottom, #fff 30%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p.subtitle {
+            font-size: 1.5rem;
+            color: var(--text-dim);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p.philosophical {
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--accent-glow);
+            opacity: 0.8;
+            margin-bottom: 3rem;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(124, 58, 237, 0.6);
+        }
+
+        .btn-secondary {
+            background: var(--glass);
+            color: var(--text-main);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Terminal Demo */
+        .terminal-container {
+            margin-top: 6rem;
+            perspective: 1000px;
+        }
+
+        .terminal {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #000;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+            overflow: hidden;
+            font-family: 'JetBrains Mono', monospace;
+            transform: rotateX(5deg);
+        }
+
+        .terminal-header {
+            background: #1a1a1a;
+            padding: 12px 16px;
+            display: flex;
+            gap: 8px;
+            border-bottom: 1px solid #333;
+        }
+
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .red { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27c93f; }
+
+        .terminal-body {
+            padding: 24px;
+            height: 300px;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+
+        .line { margin-bottom: 8px; opacity: 0; }
+        .prompt { color: var(--accent-glow); margin-right: 10px; }
+        .success { color: #27c93f; }
+        .dim { color: #666; }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            padding: 2.5rem;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-10px);
+            background: rgba(124, 58, 237, 0.05);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .feature-card p {
+            color: var(--text-dim);
+        }
+
+        /* Install Section */
+        .install-box {
+            background: #000;
+            padding: 3rem;
+            border-radius: 32px;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .install-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(124, 58, 237, 0.05), transparent);
+            pointer-events: none;
+        }
+
+        .code-block {
+            background: #111;
+            padding: 1.5rem;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 2rem 0;
+            border: 1px solid #333;
+        }
+
+        .copy-btn {
+            cursor: pointer;
+            color: var(--accent-glow);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Philosophy */
+        .philosophy {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .philosophy p {
+            font-size: 2rem;
+            font-weight: 300;
+            line-height: 1.4;
+        }
+
+        .philosophy p span {
+            color: var(--accent-glow);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 0;
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        footer a { color: #fff; text-decoration: none; margin-top: 1rem; display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-line { animation: fadeIn 0.5s forwards; }
+
+    </style>
+</head>
+<body>
+
+    <div class="glow-sphere glow-1"></div>
+    <div class="glow-sphere glow-2"></div>
+
+    <div class="container">
+        <!-- HERO -->
+        <section class="hero visible">
+            <img src="Gaia_Icon.png" alt="Gaia Logo" class="hero-logo">
+            <h1>G CLI</h1>
+            <p class="subtitle">A multi-brain intelligence layer for your system</p>
+            <p class="philosophical">It doesn’t just respond. It decides.</p>
+            <div class="cta-group">
+                <a href="#install" class="btn btn-primary">Install Now</a>
+                <a href="https://github.com/andrewrozario/G-CLI" class="btn btn-secondary">View GitHub</a>
+            </div>
+
+            <!-- TERMINAL DEMO -->
+            <div class="terminal-container">
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="terminal-body" id="terminal-content">
+                        <!-- Content via JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section id="features">
+            <h2 style="text-align: center; font-size: 2.5rem;">Surgical Intelligence</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Decision Engine</h3>
+                    <p>Analyzes intent and estimates complexity before a single token is generated.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Multi-Model Chain</h3>
+                    <p>Relays logic between Claude, Gemini, and Codex to use the optimal brain for every step.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Safe Editing</h3>
+                    <p>High-fidelity diff previews and automatic backups ensure every change is confirmed and reversible.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Self-Healing</h3>
+                    <p>Automatically executes tests and autonomously repairs breakage until your system is stable.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Project Vision</h3>
+                    <p>Recursive project scanning and dependency graph mapping for project-wide refactoring.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Continuous Mode</h3>
+                    <p>An always-on AI engineer that watches your work and prepares fixes in real-time.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTALL -->
+        <section id="install">
+            <div class="install-box">
+                <h2>Deploy the Brain</h2>
+                <div class="code-block">
+                    <span>$ npm install -g gcli-ai</span>
+                    <span class="copy-btn" onclick="copyCode()">Copy</span>
+                </div>
+                <p class="dim">Then run: <span style="color: #fff;">g "build something powerful"</span></p>
+            </div>
+        </section>
+
+        <!-- PHILOSOPHY -->
+        <section class="philosophy">
+            <p>
+                Most tools execute <span>commands</span>.<br>
+                G CLI understands <span>intent</span>.
+            </p>
+            <br><br>
+            <p>
+                Most systems <span>respond</span>.<br>
+                G CLI <span>decides</span>.
+            </p>
+        </section>
+
+        <footer>
+            <p>Built for builders who think in systems.</p>
+            <a href="https://github.com/andrewrozario/G-CLI">andrewrozario / G-CLI</a>
+        </footer>
+    </div>
+
+    <script>
+        // Scroll Reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Terminal Animation
+        const terminalContent = document.getElementById('terminal-content');
+        const lines = [
+            { text: "G • : optimize backend structure", delay: 500, type: 'prompt' },
+            { text: "🧠 Thinking... (Claude)", delay: 1500, type: 'dim' },
+            { text: "🔀 Choosing best strategy...", delay: 2200, type: 'dim' },
+            { text: "⚙️ Executing system surgery... (Codex)", delay: 3000, type: 'dim' },
+            { text: "🧪 Verifying stability... (Gemini)", delay: 4000, type: 'dim' },
+            { text: "⚡ Result: Optimized performance by 40%", delay: 4800, type: 'success' },
+            { text: "✅ Changes committed to Git.", delay: 5200, type: 'dim' }
+        ];
+
+        function runTerminal() {
+            terminalContent.innerHTML = '';
+            lines.forEach((line, index) => {
+                setTimeout(() => {
+                    const div = document.createElement('div');
+                    div.className = 'line animate-line';
+                    if (line.type === 'prompt') {
+                        div.innerHTML = `<span class="prompt">G •</span> ${line.text.split(': ')[1]}`;
+                    } else if (line.type === 'success') {
+                        div.className += ' success';
+                        div.textContent = line.text;
+                    } else {
+                        div.className += ' dim';
+                        div.textContent = line.text;
+                    }
+                    terminalContent.appendChild(div);
+                }, line.delay);
+            });
+        }
+
+        // Run once on load, then loop every 10s
+        runTerminal();
+        setInterval(runTerminal, 10000);
+
+        function copyCode() {
+            navigator.clipboard.writeText("npm install -g gcli-ai");
+            alert("Installation command copied to clipboard.");
+        }
+    </script>
+</body>
+</html>
