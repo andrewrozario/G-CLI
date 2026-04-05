@@ -1,0 +1,6 @@
+{
+    "name": "React Frontend",
+    "description": "Clean React frontend with Tailwind CSS and Component structure.",
+    "tags": ["frontend", "react", "webapp", "js", "tailwind"],
+    "version": "1.0.0"
+}

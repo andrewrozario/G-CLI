@@ -1,0 +1,6 @@
+{
+    "name": "AI Application",
+    "description": "AI-powered application with LLM integration (Ollama/OpenAI) and RAG capabilities.",
+    "tags": ["ai", "llm", "rag", "langchain", "python"],
+    "version": "1.0.0"
+}

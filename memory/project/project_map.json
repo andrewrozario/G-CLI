@@ -1,0 +1,1240 @@
+{
+    "root": "/Users/dr.andrewrozario/GAIA_Ai/Gaia CLI",
+    "technologies": [
+        "Node.js",
+        "Python",
+        "JavaScript/React"
+    ],
+    "dependencies": {
+        "npm": [],
+        "pip": [
+            "langchain>=0.1.0",
+            "langchain-community>=0.0.10",
+            "langchain-core>=0.1.10",
+            "chromadb>=0.4.22",
+            "sentence-transformers>=2.3.1",
+            "ollama>=0.1.6",
+            "pydantic>=2.5.3",
+            "typer>=0.9.0",
+            "rich>=13.7.0"
+        ]
+    },
+    "structure": {
+        "type": "directory",
+        "children": {
+            "gaia_cmd": {
+                "type": "directory",
+                "children": {
+                    "ui": {
+                        "type": "directory",
+                        "children": {
+                            "__init__.py": {
+                                "type": "file",
+                                "size": 0
+                            },
+                            "display.py": {
+                                "type": "file",
+                                "size": 3378
+                            },
+                            "streaming.py": {
+                                "type": "file",
+                                "size": 1069
+                            }
+                        }
+                    },
+                    "tools": {
+                        "type": "directory",
+                        "children": {
+                            "shell": {
+                                "type": "directory",
+                                "children": {
+                                    "runner.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "package_manager.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "__init__.py": {
+                                "type": "file",
+                                "size": 0
+                            },
+                            "executor": {
+                                "type": "directory",
+                                "children": {
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "executor.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "fs": {
+                                "type": "directory",
+                                "children": {
+                                    "file_ops.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "git": {
+                                "type": "directory",
+                                "children": {
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "github_ops.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "ops.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "core": {
+                        "type": "directory",
+                        "children": {
+                            "ui": {
+                                "type": "directory",
+                                "children": {
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "cli.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "tools": {
+                                "type": "directory",
+                                "children": {
+                                    "registry.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "base.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "llm": {
+                                "type": "directory",
+                                "children": {
+                                    "local_provider.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "config.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "provider.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "providers": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "router.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "manager.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "safe_generate.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "state.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            ".DS_Store": {
+                                "type": "file",
+                                "size": 8196
+                            },
+                            "memory": {
+                                "type": "directory",
+                                "children": {
+                                    "global_memory.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "short_term.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "persistent_memory.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "manager.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "long_term.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "intelligence": {
+                                "type": "directory",
+                                "children": {
+                                    "task_classifier.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "config": {
+                                "type": "directory",
+                                "children": {
+                                    "config.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "learning": {
+                                "type": "directory",
+                                "children": {
+                                    "refiner.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "reflection.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "evaluator.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "debugging": {
+                                "type": "directory",
+                                "children": {
+                                    "classifier.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "database.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "engine.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "planning": {
+                                "type": "directory",
+                                "children": {
+                                    "models.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "__init__.py": {
+                                "type": "file",
+                                "size": 0
+                            },
+                            "agents": {
+                                "type": "directory",
+                                "children": {
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "manager.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "error_handler": {
+                                "type": "directory",
+                                "children": {
+                                    "handler.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "project": {
+                                "type": "directory",
+                                "children": {
+                                    "scanner.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "mapper.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "system": {
+                                "type": "directory",
+                                "children": {
+                                    "upgrade_manager.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "versioning.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "prompt": {
+                                "type": "directory",
+                                "children": {
+                                    "modes": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "orchestrator.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "templates": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "role_config.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "manager.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "voice": {
+                                "type": "directory",
+                                "children": {
+                                    "provider.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "manager.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "execution": {
+                                "type": "directory",
+                                "children": {
+                                    "locks.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "error_parser.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "engine.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "parallel.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "verifier.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "plan_executor.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "templates": {
+                                "type": "directory",
+                                "children": {
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "manager.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "skills": {
+                                "type": "directory",
+                                "children": {
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "loader.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "communication": {
+                                "type": "directory",
+                                "children": {
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "message.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "orchestrator": {
+                                "type": "directory",
+                                "children": {
+                                    "checkpoint.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "loop.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "memory": {
+                        "type": "directory",
+                        "children": {
+                            "solutions.json": {
+                                "type": "file",
+                                "size": 2
+                            },
+                            ".DS_Store": {
+                                "type": "file",
+                                "size": 6148
+                            },
+                            "learning": {
+                                "type": "directory",
+                                "children": {}
+                            },
+                            "debugging": {
+                                "type": "directory",
+                                "children": {}
+                            },
+                            "checkpoints": {
+                                "type": "directory",
+                                "children": {}
+                            },
+                            "experience.json": {
+                                "type": "file",
+                                "size": 2
+                            },
+                            "project": {
+                                "type": "directory",
+                                "children": {}
+                            },
+                            "tasks.json": {
+                                "type": "file",
+                                "size": 2
+                            },
+                            "patterns.json": {
+                                "type": "file",
+                                "size": 2
+                            },
+                            "data": {
+                                "type": "directory",
+                                "children": {}
+                            }
+                        }
+                    },
+                    "__init__.py": {
+                        "type": "file",
+                        "size": 0
+                    },
+                    "agents": {
+                        "type": "directory",
+                        "children": {
+                            "reviewer": {
+                                "type": "directory",
+                                "children": {
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "reviewer.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            ".DS_Store": {
+                                "type": "file",
+                                "size": 8196
+                            },
+                            "memory": {
+                                "type": "directory",
+                                "children": {
+                                    "memory.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "file": {
+                                "type": "directory",
+                                "children": {
+                                    "file_agent.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "shell": {
+                                "type": "directory",
+                                "children": {
+                                    "shell_agent.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "planner": {
+                                "type": "directory",
+                                "children": {
+                                    "planner.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "__init__.py": {
+                                "type": "file",
+                                "size": 0
+                            },
+                            "system": {
+                                "type": "directory",
+                                "children": {
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "upgrade_agent.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "coder": {
+                                "type": "directory",
+                                "children": {
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "builder": {
+                                "type": "directory",
+                                "children": {
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "builder.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "manager.py": {
+                                "type": "file",
+                                "size": 2565
+                            },
+                            "base.py": {
+                                "type": "file",
+                                "size": 994
+                            },
+                            "debug": {
+                                "type": "directory",
+                                "children": {
+                                    "__init__.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "debug.py": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "gaia": {
+                        "type": "directory",
+                        "children": {
+                            "__init__.py": {
+                                "type": "file",
+                                "size": 0
+                            },
+                            "main.py": {
+                                "type": "file",
+                                "size": 4988
+                            }
+                        }
+                    },
+                    "templates": {
+                        "type": "directory",
+                        "children": {
+                            "frontend": {
+                                "type": "directory",
+                                "children": {
+                                    "metadata.json": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "files": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "cli": {
+                                "type": "directory",
+                                "children": {
+                                    "metadata.json": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "files": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "ai": {
+                                "type": "directory",
+                                "children": {
+                                    "metadata.json": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "files": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "api": {
+                                "type": "directory",
+                                "children": {
+                                    "metadata.json": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "files": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "saas": {
+                                "type": "directory",
+                                "children": {
+                                    "metadata.json": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    },
+                                    "files": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "skills": {
+                        "type": "directory",
+                        "children": {
+                            "testing": {
+                                "type": "directory",
+                                "children": {
+                                    "write-tests.md": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "architecture": {
+                                "type": "directory",
+                                "children": {}
+                            },
+                            "coding": {
+                                "type": "directory",
+                                "children": {
+                                    "refactor.md": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "assets": {
+                        "type": "directory",
+                        "children": {
+                            "__init__.py": {
+                                "type": "file",
+                                "size": 0
+                            },
+                            "ascii_logo.txt": {
+                                "type": "file",
+                                "size": 127
+                            }
+                        }
+                    }
+                }
+            },
+            "tools": {
+                "type": "directory",
+                "children": {
+                    "execution.py": {
+                        "type": "file",
+                        "size": 679
+                    }
+                }
+            },
+            "ARCHITECTURE.md": {
+                "type": "file",
+                "size": 8330
+            },
+            ".DS_Store": {
+                "type": "file",
+                "size": 10244
+            },
+            "core": {
+                "type": "directory",
+                "children": {
+                    "intelligence.py": {
+                        "type": "file",
+                        "size": 2166
+                    },
+                    "prompts.py": {
+                        "type": "file",
+                        "size": 3143
+                    },
+                    "llm_client.py": {
+                        "type": "file",
+                        "size": 1292
+                    },
+                    "structural_analyzer.py": {
+                        "type": "file",
+                        "size": 3076
+                    }
+                }
+            },
+            "memory": {
+                "type": "directory",
+                "children": {
+                    "learning": {
+                        "type": "directory",
+                        "children": {
+                            "lessons.json": {
+                                "type": "file",
+                                "size": 2
+                            }
+                        }
+                    },
+                    "debugging": {
+                        "type": "directory",
+                        "children": {
+                            "known_fixes.json": {
+                                "type": "file",
+                                "size": 2
+                            }
+                        }
+                    },
+                    "project": {
+                        "type": "directory",
+                        "children": {}
+                    },
+                    "vector_db.py": {
+                        "type": "file",
+                        "size": 1124
+                    },
+                    "rag_pipeline.py": {
+                        "type": "file",
+                        "size": 3331
+                    },
+                    "data": {
+                        "type": "directory",
+                        "children": {
+                            "long_term.json": {
+                                "type": "file",
+                                "size": 68
+                            }
+                        }
+                    }
+                }
+            },
+            "requirements.txt": {
+                "type": "file",
+                "size": 169
+            },
+            "Gaia_CLI_Server_Backup.tar.gz": {
+                "type": "file",
+                "size": 339496
+            },
+            "config": {
+                "type": "directory",
+                "children": {
+                    "settings.json": {
+                        "type": "file",
+                        "size": 1189
+                    }
+                }
+            },
+            "agents": {
+                "type": "directory",
+                "children": {
+                    "swarm.py": {
+                        "type": "file",
+                        "size": 2648
+                    },
+                    "tools.py": {
+                        "type": "file",
+                        "size": 1332
+                    },
+                    "frontier_bridge.py": {
+                        "type": "file",
+                        "size": 695
+                    },
+                    "action.py": {
+                        "type": "file",
+                        "size": 2026
+                    },
+                    "reasoning.py": {
+                        "type": "file",
+                        "size": 2801
+                    }
+                }
+            },
+            "MANIFEST.in": {
+                "type": "file",
+                "size": 213
+            },
+            "gaia_cli.egg-info": {
+                "type": "directory",
+                "children": {
+                    "PKG-INFO": {
+                        "type": "file",
+                        "size": 585
+                    },
+                    "SOURCES.txt": {
+                        "type": "file",
+                        "size": 4704
+                    },
+                    "entry_points.txt": {
+                        "type": "file",
+                        "size": 34
+                    },
+                    "requires.txt": {
+                        "type": "file",
+                        "size": 197
+                    },
+                    "top_level.txt": {
+                        "type": "file",
+                        "size": 14
+                    },
+                    "dependency_links.txt": {
+                        "type": "file",
+                        "size": 1
+                    }
+                }
+            },
+            "README.md": {
+                "type": "file",
+                "size": 1900
+            },
+            "setup.py": {
+                "type": "file",
+                "size": 700
+            },
+            ".gitignore": {
+                "type": "file",
+                "size": 145
+            },
+            "VERSION": {
+                "type": "file",
+                "size": 6
+            },
+            "main.py": {
+                "type": "file",
+                "size": 6056
+            },
+            "venv12": {
+                "type": "directory",
+                "children": {
+                    "bin": {
+                        "type": "directory",
+                        "children": {
+                            "jsondiff": {
+                                "type": "file",
+                                "size": 1243
+                            },
+                            "onnxruntime_test": {
+                                "type": "file",
+                                "size": 262
+                            },
+                            "Activate.ps1": {
+                                "type": "file",
+                                "size": 9033
+                            },
+                            "chroma": {
+                                "type": "file",
+                                "size": 242
+                            },
+                            "dotenv": {
+                                "type": "file",
+                                "size": 241
+                            },
+                            "python3": {
+                                "type": "file",
+                                "size": 13592
+                            },
+                            "pip3.12": {
+                                "type": "file",
+                                "size": 250
+                            },
+                            "typer": {
+                                "type": "file",
+                                "size": 237
+                            },
+                            "python": {
+                                "type": "file",
+                                "size": 13592
+                            },
+                            "pip3": {
+                                "type": "file",
+                                "size": 250
+                            },
+                            "distro": {
+                                "type": "file",
+                                "size": 241
+                            },
+                            "activate.fish": {
+                                "type": "file",
+                                "size": 2224
+                            },
+                            "tiny-agents": {
+                                "type": "file",
+                                "size": 260
+                            },
+                            "isympy": {
+                                "type": "file",
+                                "size": 234
+                            },
+                            "torchrun": {
+                                "type": "file",
+                                "size": 249
+                            },
+                            "humanfriendly": {
+                                "type": "file",
+                                "size": 245
+                            },
+                            "websockets": {
+                                "type": "file",
+                                "size": 242
+                            },
+                            "convert-onnx-to-caffe2": {
+                                "type": "file",
+                                "size": 281
+                            },
+                            "pyproject-build": {
+                                "type": "file",
+                                "size": 254
+                            },
+                            "f2py": {
+                                "type": "file",
+                                "size": 245
+                            },
+                            "pip": {
+                                "type": "file",
+                                "size": 250
+                            },
+                            "gaia": {
+                                "type": "file",
+                                "size": 230
+                            },
+                            "httpx": {
+                                "type": "file",
+                                "size": 233
+                            },
+                            "transformers": {
+                                "type": "file",
+                                "size": 257
+                            },
+                            "jsonschema": {
+                                "type": "file",
+                                "size": 242
+                            },
+                            "wsdump": {
+                                "type": "file",
+                                "size": 245
+                            },
+                            "pybase64": {
+                                "type": "file",
+                                "size": 245
+                            },
+                            "tqdm": {
+                                "type": "file",
+                                "size": 236
+                            },
+                            "markdown-it": {
+                                "type": "file",
+                                "size": 249
+                            },
+                            "pygmentize": {
+                                "type": "file",
+                                "size": 244
+                            },
+                            "hf": {
+                                "type": "file",
+                                "size": 250
+                            },
+                            "uvicorn": {
+                                "type": "file",
+                                "size": 240
+                            },
+                            "activate": {
+                                "type": "file",
+                                "size": 2222
+                            },
+                            "convert-caffe2-to-onnx": {
+                                "type": "file",
+                                "size": 281
+                            },
+                            "coloredlogs": {
+                                "type": "file",
+                                "size": 243
+                            },
+                            "normalizer": {
+                                "type": "file",
+                                "size": 262
+                            },
+                            "numpy-config": {
+                                "type": "file",
+                                "size": 245
+                            },
+                            "jsonpointer": {
+                                "type": "file",
+                                "size": 1805
+                            },
+                            "jsonpatch": {
+                                "type": "file",
+                                "size": 3904
+                            },
+                            "python3.12": {
+                                "type": "file",
+                                "size": 13592
+                            },
+                            "openai": {
+                                "type": "file",
+                                "size": 238
+                            },
+                            "watchfiles": {
+                                "type": "file",
+                                "size": 240
+                            },
+                            "activate.csh": {
+                                "type": "file",
+                                "size": 949
+                            }
+                        }
+                    },
+                    "include": {
+                        "type": "directory",
+                        "children": {
+                            "site": {
+                                "type": "directory",
+                                "children": {
+                                    "python3.12": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            },
+                            "python3.12": {
+                                "type": "directory",
+                                "children": {}
+                            }
+                        }
+                    },
+                    "pyvenv.cfg": {
+                        "type": "file",
+                        "size": 309
+                    },
+                    "lib": {
+                        "type": "directory",
+                        "children": {
+                            "python3.12": {
+                                "type": "directory",
+                                "children": {
+                                    "site-packages": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "share": {
+                        "type": "directory",
+                        "children": {
+                            "man": {
+                                "type": "directory",
+                                "children": {
+                                    "man1": {
+                                        "type": "dir",
+                                        "truncated": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "gaia_internal.log": {
+                "type": "file",
+                "size": 0
+            }
+        }
+    },
+    "entry_points": [
+        "main.py",
+        "gaia_cmd/gaia/main.py",
+        "gaia_cmd/templates/ai/files/src/main.py",
+        "gaia_cmd/templates/api/files/src/main.py",
+        "gaia_cmd/templates/saas/files/backend/main.py",
+        "venv12/lib/python3.12/site-packages/langgraph/pregel/main.py",
+        "venv12/lib/python3.12/site-packages/dotenv/main.py",
+        "venv12/lib/python3.12/site-packages/typer/main.py",
+        "venv12/lib/python3.12/site-packages/chromadb/app.py",
+        "venv12/lib/python3.12/site-packages/markdown_it/main.py",
+        "venv12/lib/python3.12/site-packages/langchain_community/tools/ainetwork/app.py",
+        "venv12/lib/python3.12/site-packages/pip/_internal/main.py",
+        "venv12/lib/python3.12/site-packages/pip/_internal/cli/main.py",
+        "venv12/lib/python3.12/site-packages/annotated_doc/main.py",
+        "venv12/lib/python3.12/site-packages/uvicorn/main.py",
+        "venv12/lib/python3.12/site-packages/pydantic_settings/main.py",
+        "venv12/lib/python3.12/site-packages/langchain_classic/tools/ainetwork/app.py",
+        "venv12/lib/python3.12/site-packages/pydantic/main.py",
+        "venv12/lib/python3.12/site-packages/pydantic/v1/main.py",
+        "venv12/lib/python3.12/site-packages/scipy/_lib/cobyqa/main.py",
+        "venv12/lib/python3.12/site-packages/watchfiles/main.py"
+    ],
+    "patterns": [
+        "Agentic Architecture (Gaia-style)"
+    ]
+}

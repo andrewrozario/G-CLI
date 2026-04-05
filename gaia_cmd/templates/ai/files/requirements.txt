@@ -1,0 +1,8 @@
+langchain
+langchain-community
+ollama
+openai
+requests
+python-dotenv
+chromadb
+faiss-cpu

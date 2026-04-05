@@ -1,0 +1,6 @@
+{
+    "name": "Fullstack SaaS App",
+    "description": "Fullstack application with React, FastAPI, and Database integration.",
+    "tags": ["saas", "fullstack", "webapp", "react", "fastapi"],
+    "version": "1.0.0"
+}

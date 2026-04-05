@@ -1,0 +1,6 @@
+{
+    "name": "CLI Tool",
+    "description": "Command line interface tool built with Click or Typer.",
+    "tags": ["cli", "tool", "terminal", "python", "click"],
+    "version": "1.0.0"
+}

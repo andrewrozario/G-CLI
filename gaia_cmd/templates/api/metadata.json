@@ -1,0 +1,6 @@
+{
+    "name": "REST API Backend",
+    "description": "Robust REST API with FastAPI, OpenAPI, and unit tests.",
+    "tags": ["api", "rest", "backend", "fastapi", "python"],
+    "version": "1.0.0"
+}

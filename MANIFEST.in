@@ -1,0 +1,7 @@
+include gaia_cmd/assets/ascii_logo.txt
+recursive-include gaia_cmd/templates *
+recursive-include gaia_cmd/skills *
+recursive-include gaia_cmd/memory *.json
+include VERSION
+include ARCHITECTURE.md
+include README.md

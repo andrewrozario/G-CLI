@@ -1,0 +1,26 @@
+# G CLI - Git Exclusion Substrate
+
+# Environments
+venv/
+venv12/
+.env
+.env.backup
+
+# Python Noise
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+
+# G CLI Memory & Backups
+.gaia_memory/
+*.bak
+*.gcli_backup
+gaia_internal.log
+
+# System Noise
+.DS_Store
+.vscode/
+.idea/
